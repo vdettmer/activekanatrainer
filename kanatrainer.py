@@ -1,5 +1,5 @@
 import random
-import PySimpleGUI as sg # tested with 4.45.0
+import PySimpleGUI as sg # tested with 4.45.0 / use PySimpleGUIQt for macOS
 
 dicthiragana = {'a':  'あ',      'i':     'い',      'u':     'う',      'e':    'え',      'o':  'お',
                 'ka': 'か',      'ki':    'き',      'ku':    'く',      'ke':   'け',      'ko': 'こ',
