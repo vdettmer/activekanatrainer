@@ -35,9 +35,34 @@ dictkatakana = {'a':  'ア',      'i':     'イ',      'u':     'ウ',      'e':
                 'ba': 'バ',      'bi':    'ビ',      'bu':    'ブ',      'be':   'ベ',      'bo': 'ボ',
                 'pa': 'パ',      'pi':    'ピ',      'pu':    'プ',      'pe':   'ペ',      'po': 'ポ'}
 
-# Set Default
+# initial Default
 dictkana = dicthiragana
 questionbit = "Hiragana"
+
+def setKanaMode(kanaMode):
+    global dictkana
+    global kanakey
+    global questionbit
+    if kanaMode == "Hiragana":
+        dictkana = dicthiragana
+        kanakey = hiraganakey
+        questionbit = "Hiragana"
+    elif kanaMode == "Katakana":
+        dictkana = dictkatakana
+        kanakey = katakanakey
+        questionbit = "Katakana"
+    elif kanaMode == "Mixed":
+        mode = random.randrange(0, 2)
+        if mode == 0:
+            dictkana = dicthiragana
+            kanakey = hiraganakey
+            questionbit = "Hiragana"
+        else:
+            dictkana = dictkatakana
+            kanakey = katakanakey
+            questionbit = "Katakana"
+    return questionbit
+
 
 if __name__ == '__main__':
     hiraganakey = random.choice(list(dicthiragana.keys()))
@@ -68,23 +93,11 @@ if __name__ == '__main__':
             window['-OUTPUT-'].update(dictkana[kanakey])
         elif event == 'Next Kana':
             if values["-MODEHIRA-"] == True:
-                dictkana = dicthiragana
-                kanakey = hiraganakey
-                questionbit = "Hiragana"
+                setKanaMode("Hiragana")
             elif values["-MODEKATA-"] == True:
-                dictkana = dictkatakana
-                kanakey = katakanakey
-                questionbit = "Katakana"
+                setKanaMode("Katakana")
             else:
-                mode = random.randrange(0,2)
-                if mode == 0:
-                    dictkana = dicthiragana
-                    kanakey = hiraganakey
-                    questionbit = "Hiragana"
-                else:
-                    dictkana = dictkatakana
-                    kanakey = katakanakey
-                    questionbit = "Katakana"
+                setKanaMode("Mixed")
             kanakey = random.choice(list(dictkana.keys()))
             window['-QUESTION-'].update('Write down ' + questionbit + ' for ' + kanakey)
             window['-OUTPUT-'].update('')
