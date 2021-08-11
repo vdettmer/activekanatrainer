@@ -52,17 +52,23 @@ def setKanaMode(kanaMode):
         kanakey = katakanakey
         questionbit = "Katakana"
     elif kanaMode == "Mixed":
-        mode = random.randrange(0, 2)
-        if mode == 0:
-            dictkana = dicthiragana
-            kanakey = hiraganakey
-            questionbit = "Hiragana"
-        else:
-            dictkana = dictkatakana
-            kanakey = katakanakey
-            questionbit = "Katakana"
+        setKanaMixed()
     return questionbit
 
+def setKanaMixed():
+    global dictkana
+    global kanakey
+    global questionbit
+    mode = random.randrange(0, 2)
+    if mode == 0:
+        dictkana = dicthiragana
+        kanakey = hiraganakey
+        questionbit = "Hiragana"
+    else:
+        dictkana = dictkatakana
+        kanakey = katakanakey
+        questionbit = "Katakana"
+    return questionbit
 
 if __name__ == '__main__':
     hiraganakey = random.choice(list(dicthiragana.keys()))
@@ -84,7 +90,6 @@ if __name__ == '__main__':
         if event == 'MODE':
             print("Hiragana")
         window['-QUESTION-'].update('Write down ' + questionbit + ' for '+kanakey)
-
         # See if user wants to quit or window was closed
         if event == sg.WINDOW_CLOSED or event == 'Quit':
             break
