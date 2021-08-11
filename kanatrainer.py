@@ -1,5 +1,5 @@
 import random
-import PySimpleGUI as sg # tested with 4.45.0 / use PySimpleGUIQt for macOS
+import PySimpleGUIQt as sg
 
 dicthiragana = {'a':  'あ',      'i':     'い',      'u':     'う',      'e':    'え',      'o':  'お',
                 'ka': 'か',      'ki':    'き',      'ku':    'く',      'ke':   'け',      'ko': 'こ',
@@ -77,12 +77,12 @@ if __name__ == '__main__':
     katakanakey = random.choice(list(dictkatakana.keys()))
 
     # Define the window's contents
-    layout = [[sg.Text(size=(25, 1), font=("Arial", 15), key='-QUESTION-', text='Write down Hiragana for '+kanakey)],
-              [sg.Text(size=(10, 1), font=("Arial", 40), key='-OUTPUT-')],
-              [sg.Button('Display Answer'), sg.Button('Next Kana'), sg.Button('Quit')],
-              [sg.Radio('Hiragana', "MODE", default=True, size=(10, 1), key="-MODEHIRA-"), sg.Radio('Katakana', "MODE", key="-MODEKATA-"), sg.Radio('Mixed', "MODE")]]
+    layout = [[sg.Text(size=(40, 1), font=("Arial", 11), key='-QUESTION-', text='Write down Hiragana for '+kanakey)],
+              [sg.Text(size=(60, 60), font=("Arial", 40), key='-OUTPUT-')],
+              [sg.Button('Display Answer', size=(125,50)), sg.Button('Next Kana', size=(125,50)), sg.Button('Quit', size=(125,50))],
+              [sg.Radio('Hiragana', "MODE", default=True, key="-MODEHIRA-"), sg.Radio('Katakana', "MODE", key="-MODEKATA-"), sg.Radio('Mixed', "MODE")]]
     # Create the window
-    window = sg.Window('Kana-Trainer 1.0', layout)
+    window = sg.Window('Kana-Trainer 1.1', layout)
 
     # Display and interact with the Window using an Event Loop
     while True:
