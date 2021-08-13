@@ -75,11 +75,11 @@ if __name__ == '__main__':
     # Set Default
     kanakey = hiraganakey
     katakanakey = random.choice(list(dictkatakana.keys()))
-
+    buttonsize = 125, 40
     # Define the window's contents
-    layout = [[sg.Text(size=(40, 1), font=("Arial", 11), key='-QUESTION-', text='Write down Hiragana for '+kanakey)],
-              [sg.Text(size=(60, 60), font=("Arial", 40), key='-OUTPUT-')],
-              [sg.Button('Display Answer', size=(125,50)), sg.Button('Next Kana', size=(125,50)), sg.Button('Quit', size=(125,50))],
+    layout = [[sg.Text(size_px=(250, 40), font=("Arial", 11), key='-QUESTION-', text='Write down Hiragana for '+kanakey)],
+              [sg.Text(size_px=(60, 60), font=("Arial", 40), key='-OUTPUT-')],
+              [sg.Button('Display Answer', size_px=(buttonsize)), sg.Button('Next Kana', size_px=(buttonsize)), sg.Button('Quit', size_px=(58, 40))],
               [sg.Radio('Hiragana', "MODE", default=True, key="-MODEHIRA-"), sg.Radio('Katakana', "MODE", key="-MODEKATA-"), sg.Radio('Mixed', "MODE")]]
     # Create the window
     window = sg.Window('Kana-Trainer 1.1', layout)
