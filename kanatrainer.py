@@ -87,8 +87,6 @@ if __name__ == '__main__':
     # Display and interact with the Window using an Event Loop
     while True:
         event, values = window.read()
-        if event == 'MODE':
-            print("Hiragana")
         window['-QUESTION-'].update('Write down ' + questionbit + ' for '+kanakey)
         # See if user wants to quit or window was closed
         if event == sg.WINDOW_CLOSED or event == 'Quit':
