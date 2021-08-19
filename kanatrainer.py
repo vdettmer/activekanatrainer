@@ -55,9 +55,6 @@ def setKanaMode(kanaMode):
         setKanaMixed()
 
 def setKanaMixed():
-    global dictkana
-    global kanakey
-    global questionbit
     mode = random.randrange(0, 2)
     if mode == 0:
         setKanaMode("Hiragana")
