@@ -53,7 +53,6 @@ def setKanaMode(kanaMode):
         questionbit = "Katakana"
     elif kanaMode == "Mixed":
         setKanaMixed()
-    return questionbit
 
 def setKanaMixed():
     global dictkana
@@ -61,14 +60,9 @@ def setKanaMixed():
     global questionbit
     mode = random.randrange(0, 2)
     if mode == 0:
-        dictkana = dicthiragana
-        kanakey = hiraganakey
-        questionbit = "Hiragana"
+        setKanaMode("Hiragana")
     else:
-        dictkana = dictkatakana
-        kanakey = katakanakey
-        questionbit = "Katakana"
-    return questionbit
+        setKanaMode("Katakana")
 
 if __name__ == '__main__':
     hiraganakey = random.choice(list(dicthiragana.keys()))
