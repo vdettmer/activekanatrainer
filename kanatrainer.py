@@ -73,7 +73,7 @@ if __name__ == '__main__':
               [sg.Button('Display Answer', size_px=(buttonsize)), sg.Button('Next Kana', size_px=(buttonsize)), sg.Button('Quit', size_px=(58, 40))],
               [sg.Radio('Hiragana', "MODE", default=True, key="-MODEHIRA-"), sg.Radio('Katakana', "MODE", key="-MODEKATA-"), sg.Radio('Mixed', "MODE")]]
     # Create the window
-    window = sg.Window('Kana-Trainer 1.1', layout)
+    window = sg.Window('Kana-Trainer 1.1.1', layout)
 
     # Display and interact with the Window using an Event Loop
     while True:
